@@ -1,0 +1,14 @@
+# simulator-proxy — WP-319 Ф7
+# Прозрачный proxy simulator.aisystant.com → Railway simulator-lab.
+# simulator.aisystant.com уже резолвится через CF anycast (wildcard DNS).
+
+name = "simulator-proxy"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+routes = [
+  { pattern = "simulator.aisystant.com/*", zone_name = "aisystant.com" }
+]
+
+[vars]
+UPSTREAM = "simulator-lab-production.up.railway.app"
